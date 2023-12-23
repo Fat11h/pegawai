@@ -53,7 +53,7 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="pegawai.html">
+                            <a class="nav-link" href="pegawai.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Pegawai
                             </a>

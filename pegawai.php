@@ -52,11 +52,11 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="pegawai.html">
+                            <a class="nav-link" href="pegawai.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Pegawai
                             </a>
-                            <a class="nav-link" href="divisi.html">
+                            <a class="nav-link" href="divisi.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Divisi
                             </a>
@@ -93,6 +93,7 @@
 											<th>Divisi</th>
                                             <th>Email</th>
                                             <th>Nomor Hp</th>
+											<th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -102,12 +103,13 @@
                                             <th>Divisi</th>
                                             <th>Email</th>
                                             <th>Nomor Hp</th>
+											<th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
 										include 'connection.php';
-										$result = $mysqli->query("SELECT * FROM pegawai");
+										$result = $mysqli->query("SELECT * FROM pegawai where status=0");
 										if($result->num_rows>0){
 											$num=1;
 											while($row=$result->fetch_assoc()){
@@ -118,6 +120,7 @@
 													<td><?php echo ucfirst($row['divisi'])?></td>
 													<td><?php echo ucfirst($row['email']);?></td>
 													<td><?php echo ucfirst($row['nomor']);?></td>
+													<td><a type='button' class='btn btn-danger btn-xs' href="hapus_pegawai.php?id=<?php echo $row['id_pegawai'];?>" onClick="return confirm('Apakah anda yakin mau menghapus data pegawai ?');">Delete</a></td>
 												</tr>
 										<?php
 											};
